@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:pm="http://primefaces.org/mobile">
+    <h:head>
+        <title>Facelet Title</title>
+		<link type="text/css" rel="stylesheet" 
+		  href="resources/style.css" />
+    </h:head>
+    <h:body class="body">
+        <div class="head">
+            
+        </div>
+        <div class="content">
+        <h:panelGroup class="game" rendered="#{!user.logedIn}">
+            <p class="word"> 
+                <c:if test="#{readWords.wordisfound}">
+                    <h:outputScript>
+                        alert("Sie haben das Wort gefunden!")
+                    </h:outputScript>
+                </c:if>
+                #{readWords.getShow()}
+            </p>
+            <div  class="input">
+            <h:form>
+                <h:selectBooleanCheckbox id="layout" value="#{readWords.keyboardLayout}">Keyboard Layout</h:selectBooleanCheckbox>
+                <h:commandButton value="Anwenden"/>
+            </h:form>
+            <h:form rendered ="#{!readWords.keyboardLayout}">
+                <h:commandButton class="in" value="A" action="#{readWords.proveChar('A')}" disabled="#{readWords.checkTryed('A')}"/>
+                <h:commandButton class="in" value="B" action="#{readWords.proveChar('B')}" disabled="#{readWords.checkTryed('B')}"/>
+                <h:commandButton class="in" value="C" action="#{readWords.proveChar('C')}" disabled="#{readWords.checkTryed('C')}"/>
+                <h:commandButton class="in" value="D" action="#{readWords.proveChar('D')}" disabled="#{readWords.checkTryed('D')}"/>
+                <h:commandButton class="in" value="E" action="#{readWords.proveChar('E')}" disabled="#{readWords.checkTryed('E')}"/>
+                <h:commandButton class="in" value="F" action="#{readWords.proveChar('F')}" disabled="#{readWords.checkTryed('F')}"/>
+                <h:commandButton class="in" value="G" action="#{readWords.proveChar('G')}" disabled="#{readWords.checkTryed('G')}"/>
+                <h:commandButton class="in" value="H" action="#{readWords.proveChar('H')}" disabled="#{readWords.checkTryed('H')}"/>
+                <h:commandButton class="in" value="I" action="#{readWords.proveChar('I')}" disabled="#{readWords.checkTryed('I')}"/>
+                <h:commandButton class="in" value="J" action="#{readWords.proveChar('J')}" disabled="#{readWords.checkTryed('J')}"/>
+                <h:commandButton class="in" value="K" action="#{readWords.proveChar('K')}" disabled="#{readWords.checkTryed('K')}"/>
+                <h:commandButton class="in" value="L" action="#{readWords.proveChar('L')}" disabled="#{readWords.checkTryed('L')}"/>
+                <h:commandButton class="in" value="M" action="#{readWords.proveChar('M')}" disabled="#{readWords.checkTryed('M')}"/>
+                <h:commandButton class="in" value="N" action="#{readWords.proveChar('N')}" disabled="#{readWords.checkTryed('N')}"/>
+                <h:commandButton class="in" value="O" action="#{readWords.proveChar('O')}" disabled="#{readWords.checkTryed('O')}"/>
+                <br />
+                <h:commandButton class="in" value="P" action="#{readWords.proveChar('P')}" disabled="#{readWords.checkTryed('P')}"/>
+                <h:commandButton class="in" value="Q" action="#{readWords.proveChar('Q')}" disabled="#{readWords.checkTryed('Q')}"/>
+                <h:commandButton class="in" value="R" action="#{readWords.proveChar('R')}" disabled="#{readWords.checkTryed('R')}"/>
+                <h:commandButton class="in" value="S" action="#{readWords.proveChar('S')}" disabled="#{readWords.checkTryed('S')}"/>
+                <h:commandButton class="in" value="T" action="#{readWords.proveChar('T')}" disabled="#{readWords.checkTryed('T')}"/>
+                <h:commandButton class="in" value="U" action="#{readWords.proveChar('U')}" disabled="#{readWords.checkTryed('U')}"/>
+                <h:commandButton class="in" value="V" action="#{readWords.proveChar('V')}" disabled="#{readWords.checkTryed('V')}"/>
+                <h:commandButton class="in" value="W" action="#{readWords.proveChar('W')}" disabled="#{readWords.checkTryed('W')}"/>
+                <h:commandButton class="in" value="X" action="#{readWords.proveChar('X')}" disabled="#{readWords.checkTryed('X')}"/>
+                <h:commandButton class="in" value="Y" action="#{readWords.proveChar('Y')}" disabled="#{readWords.checkTryed('Y')}"/>
+                <h:commandButton class="in" value="Z" action="#{readWords.proveChar('Z')}" disabled="#{readWords.checkTryed('Z')}"/>
+                <h:commandButton class="in" value="Ä" action="#{readWords.proveChar('Ä')}" disabled="#{readWords.checkTryed('Ä')}"/>
+                <h:commandButton class="in" value="Ö" action="#{readWords.proveChar('Ö')}" disabled="#{readWords.checkTryed('Ö')}"/>
+                <h:commandButton class="in" value="Ü" action="#{readWords.proveChar('Ü')}" disabled="#{readWords.checkTryed('Ü')}"/>
+            </h:form>
+            <h:form rendered ="#{readWords.keyboardLayout}">
+                <h:commandButton class="in" value="Q" action="#{readWords.proveChar('Q')}" disabled="#{readWords.checkTryed('Q')}"/>
+                <h:commandButton class="in" value="W" action="#{readWords.proveChar('W')}" disabled="#{readWords.checkTryed('W')}"/>
+                <h:commandButton class="in" value="E" action="#{readWords.proveChar('E')}" disabled="#{readWords.checkTryed('E')}"/>
+                <h:commandButton class="in" value="R" action="#{readWords.proveChar('R')}" disabled="#{readWords.checkTryed('R')}"/>
+                <h:commandButton class="in" value="T" action="#{readWords.proveChar('T')}" disabled="#{readWords.checkTryed('T')}"/>
+                <h:commandButton class="in" value="Z" action="#{readWords.proveChar('Z')}" disabled="#{readWords.checkTryed('Z')}"/>
+                <h:commandButton class="in" value="U" action="#{readWords.proveChar('U')}" disabled="#{readWords.checkTryed('U')}"/>
+                <h:commandButton class="in" value="I" action="#{readWords.proveChar('I')}" disabled="#{readWords.checkTryed('I')}"/>
+                <h:commandButton class="in" value="O" action="#{readWords.proveChar('O')}" disabled="#{readWords.checkTryed('O')}"/>
+                <h:commandButton class="in" value="P" action="#{readWords.proveChar('P')}" disabled="#{readWords.checkTryed('P')}"/>
+                <h:commandButton class="in" value="Ü" action="#{readWords.proveChar('Ü')}" disabled="#{readWords.checkTryed('Ü')}"/>
+                <br />
+                <h:commandButton class="in" value="A" action="#{readWords.proveChar('A')}" disabled="#{readWords.checkTryed('A')}"/>
+                <h:commandButton class="in" value="S" action="#{readWords.proveChar('S')}" disabled="#{readWords.checkTryed('S')}"/>
+                <h:commandButton class="in" value="D" action="#{readWords.proveChar('D')}" disabled="#{readWords.checkTryed('D')}"/>
+                <h:commandButton class="in" value="F" action="#{readWords.proveChar('F')}" disabled="#{readWords.checkTryed('F')}"/>
+                <h:commandButton class="in" value="G" action="#{readWords.proveChar('G')}" disabled="#{readWords.checkTryed('G')}"/>
+                <h:commandButton class="in" value="H" action="#{readWords.proveChar('H')}" disabled="#{readWords.checkTryed('H')}"/>
+                <h:commandButton class="in" value="J" action="#{readWords.proveChar('J')}" disabled="#{readWords.checkTryed('J')}"/>
+                <h:commandButton class="in" value="K" action="#{readWords.proveChar('K')}" disabled="#{readWords.checkTryed('K')}"/>
+                <h:commandButton class="in" value="L" action="#{readWords.proveChar('L')}" disabled="#{readWords.checkTryed('L')}"/>
+                <h:commandButton class="in" value="Ö" action="#{readWords.proveChar('Ö')}" disabled="#{readWords.checkTryed('Ö')}"/>
+                <h:commandButton class="in" value="Ä" action="#{readWords.proveChar('Ä')}" disabled="#{readWords.checkTryed('Ä')}"/>
+                <br />
+                <h:commandButton class="in" value="Y" action="#{readWords.proveChar('Y')}" disabled="#{readWords.checkTryed('Y')}"/>
+                <h:commandButton class="in" value="X" action="#{readWords.proveChar('X')}" disabled="#{readWords.checkTryed('X')}"/>
+                <h:commandButton class="in" value="C" action="#{readWords.proveChar('C')}" disabled="#{readWords.checkTryed('C')}"/>
+                <h:commandButton class="in" value="V" action="#{readWords.proveChar('V')}" disabled="#{readWords.checkTryed('V')}"/>
+                <h:commandButton class="in" value="B" action="#{readWords.proveChar('B')}" disabled="#{readWords.checkTryed('B')}"/>
+                <h:commandButton class="in" value="N" action="#{readWords.proveChar('N')}" disabled="#{readWords.checkTryed('N')}"/>
+                <h:commandButton class="in" value="M" action="#{readWords.proveChar('M')}" disabled="#{readWords.checkTryed('M')}"/>
+            </h:form>
+            </div>
+            <h:form class="login">
+                <h:inputText id="name" value="#{user.name}" />
+                <h:inputSecret id="password" value="#{user.password}" />
+                <h:commandButton value="Login" action="#{user.login()}"/>
+            </h:form>
+        </h:panelGroup>
+        <h:panelGroup class="manager" rendered="#{user.logedIn}">
+            <h:form class="wordlist">
+                <table>
+                    <c:forEach items="#{readWords.words}" var="wd">
+                        <tr>
+                            <td>
+                                #{wd}
+                            </td>
+                            <td>
+                                <h:commandButton value="Löschen" action="#{readWords.deleteWord(wd)}" />
+                            </td>
+                        </tr>
+                    </c:forEach>
+                </table>
+            </h:form>
+            <h:form class="wortinput">
+                <h:inputText id="wortinput" value="#{wort.wort}" />
+                <h:commandButton value="Eintragen" action="#{wort.enter()}"/>
+            </h:form>
+            <h:form class="logout">
+                <h:commandButton value="Logout" action="#{user.logout()}"/>                
+            </h:form>
+        </h:panelGroup>
+            </div>
+        <div class="foot">
+            
+        </div>
+    </h:body>
+</html>
+
